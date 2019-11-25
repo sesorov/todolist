@@ -1,0 +1,10 @@
+<input type="text" [formControl]="input" (keydown.enter)="onTodoAdd()">
+
+<ul>
+    <li *ngFor="let todo of todos; let index = index"
+        (click)="toggleDone(index)">
+        <del *ngIf="todo.isDone; else undone">{{todo.title}}</del>
+        <ng-template #undone>{{todo.title}}</ng-template>
+    </li>
+</ul>
+
